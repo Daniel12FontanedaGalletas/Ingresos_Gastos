@@ -233,7 +233,7 @@ body {
     padding: 10px !important;
 }
 
-/* Estilos para el resumen del usuario */
+
 .summary-for-user {
     margin-top: 25px;
     padding: 15px;
@@ -261,9 +261,8 @@ body {
 
 .summary-feedback-icon { 
     display: none; 
-    width: 80px;   /* Ancho fijo */
-    height: auto; /* CAMBIADO: Altura automática para mantener proporción */
-    /* object-fit: contain; ELIMINADO: Ya no es necesario con height: auto */
+    width: 80px;   
+    height: auto; 
     margin-left: 15px; 
 }
 
@@ -294,10 +293,6 @@ body {
     background-color: #FFEBEE; 
     color: #B71C1C;
 }
-
-.summary-for-user .mensaje-final-style.mensaje-neutro {
-}
-
 
 .mensaje-final-style {
     margin-top: 10px;
@@ -368,8 +363,7 @@ body {
     }
     .summary-feedback-icon { 
         width: 65px; 
-        height: auto; /* CAMBIADO: Altura automática para móvil también */
-        /* object-fit: contain; ELIMINADO */
+        height: auto; 
         margin-left: 0;
         margin-top: 10px; 
     }
