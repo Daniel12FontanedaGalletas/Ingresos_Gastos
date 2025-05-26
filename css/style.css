@@ -1,0 +1,197 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    border-top: 10px solid #ffcc00; /* Similar al color de la espiral */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 2px dashed #ddd;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    font-size: 2.5em; /* Más grande */
+}
+
+.subtitle {
+    color: #e74c3c; /* Un color divertido para el subtítulo */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.section {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.section h2 {
+    color: #3498db; /* Azul para ingresos */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    font-size: 1.8em;
+}
+
+.section.gastos h2 {
+    color: #e74c3c; /* Rojo para gastos */
+}
+
+.section.resultado h2 {
+    color: #2ecc71; /* Verde para resultado */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-group label {
+    flex-basis: 60%; /* Más espacio para la etiqueta */
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 5px; /* Para móviles */
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"] {
+    flex-basis: 35%; /* Espacio para el input */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: right;
+    background-color: #fff;
+}
+
+.form-group input[type="text"][readonly] {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-group.total label {
+    color: #16a085;
+    font-size: 1.1em;
+}
+.form-group.total input {
+    font-size: 1.1em;
+}
+
+.ahorro-item label {
+    color: #f39c12; /* Naranja para el ahorro */
+}
+
+.resumen-final {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e8f6f3;
+    border: 1px solid #d0e9e1;
+    border-left: 5px solid #2ecc71;
+    border-radius: 8px;
+}
+
+.resumen-final h3 {
+    margin-top: 0;
+    color: #1abc9c;
+}
+
+.resumen-final p {
+    font-size: 1.1em;
+    margin: 8px 0;
+}
+
+.resumen-final strong {
+    color: #27ae60;
+}
+
+.mensaje-final {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mensaje-positivo {
+    color: #27ae60; /* Verde */
+    background-color: #d4efdf;
+}
+
+.mensaje-negativo {
+    color: #c0392b; /* Rojo */
+    background-color: #f5e1df;
+}
+
+.mensaje-neutro {
+    color: #2980b9; /* Azul */
+    background-color: #e4f1f8;
+}
+
+/* Estilo para que se parezca un poco más a la imagen original */
+.ingresos h2::before { content: "📥 "; }
+.gastos h2::before { content: "📤 "; }
+.resultado h2::before { content: "🎯 "; }
+.ahorro-item label::after { content: " 🐷"; }
+
+
+/* Media query para mejorar la visualización en pantallas pequeñas */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group label,
+    .form-group input[type="number"],
+    .form-group input[type="text"] {
+        flex-basis: 100%;
+        width: 100%;
+        box-sizing: border-box; /* Asegura que padding no aumente el ancho total */
+    }
+
+    .form-group input[type="number"],
+    .form-group input[type="text"] {
+        margin-top: 5px;
+    }
+}
