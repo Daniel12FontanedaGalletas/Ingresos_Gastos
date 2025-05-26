@@ -3,77 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primer Presupuesto 💰</title>
+    <title>Mi Primer Presupuesto 📝</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Mi primer presupuesto</h1>
-            <p class="subtitle">¡Calcula tu primer presupuesto con esta plantilla!</p>
-        </header>
-
-        <form id="budgetForm">
-            <div class="section ingresos">
-                <h2>1. INGRESOS 📥</h2>
-                <div class="form-group">
-                    <label for="ingresosOrdinarios">1.1. Ordinarios:</label>
-                    <input type="number" id="ingresosOrdinarios" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group">
-                    <label for="ingresosExtraordinarios">1.2. Extraordinarios (previsión):</label>
-                    <input type="number" id="ingresosExtraordinarios" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group total">
-                    <label>TOTAL INGRESOS (1.1 + 1.2):</label>
-                    <input type="text" id="totalIngresos" readonly>
-                </div>
+    <div class="page-container">
+        <div class="budget-sheet">
+            <div class="spiral-header">
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
             </div>
 
-            <div class="section gastos">
-                <h2>2. GASTOS 📤</h2>
-                <div class="form-group">
-                    <label for="gastosImprescindibles">2.1. Ordinarios imprescindibles:</label>
-                    <input type="number" id="gastosImprescindibles" value="0" min="0" step="0.01">
+            <header class="sheet-header">
+                <h1>Mi primer presupuesto</h1>
+                <div class="info-box">
+                    <img src="images/euroman.png" alt="Euroman" class="info-box-icon">
+                    <p>CALCULA<br>
+                    TU PRIMER<br>
+                    PRESUPUESTO<br>
+                    CON ESTA<br>
+                    PLANTILLA.</p>
                 </div>
-                <div class="form-group">
-                    <label for="gastosNecesarios">2.2. Ordinarios necesarios:</label>
-                    <input type="number" id="gastosNecesarios" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group">
-                    <label for="gastosPrescindibles">2.3. Ordinarios prescindibles:</label>
-                    <input type="number" id="gastosPrescindibles" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group">
-                    <label for="gastosExtraordinarios">2.4. Extraordinarios (previsión):</label>
-                    <input type="number" id="gastosExtraordinarios" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group ahorro-item">
-                    <label for="ahorro">2.5. AHORRO 🐷:</label>
-                    <input type="number" id="ahorro" value="0" min="0" step="0.01">
-                </div>
-                <div class="form-group total">
-                    <label>TOTAL GASTOS (2.1 + 2.2 + 2.3 + 2.4 + 2.5):</label>
-                    <input type="text" id="totalGastos" readonly>
-                </div>
+            </header>
+
+            <div class="column-titles">
+                <span class="title-concepto">Conceptos</span>
+                <span class="title-importe">Importe en dinero</span>
             </div>
 
-            <div class="section resultado">
-                <h2>SALDO FINAL 🎯</h2>
-                <div class="form-group total">
-                    <label>(TOTAL INGRESOS - TOTAL GASTOS):</label>
-                    <input type="text" id="saldoFinal" readonly>
+            <form id="budgetForm">
+                <div class="section ingresos">
+                    <div class="section-title-container">
+                        <h2 class="section-title">1. INGRESOS</h2>
+                        <img src="images/cerdocongelado.png" alt="Ingresos" class="section-icon">
+                    </div>
+                    <div class="form-group">
+                        <label for="ingresosOrdinarios">1.1. Ordinarios:</label>
+                        <input type="number" id="ingresosOrdinarios" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="ingresosExtraordinarios">1.2. Extraordinarios (previsión):</label>
+                        <input type="number" id="ingresosExtraordinarios" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group total-line">
+                        <label class="total-label">TOTAL INGRESOS (1.1 + 1.2)</label>
+                        <input type="text" id="totalIngresos" readonly class="calculated-field">
+                    </div>
                 </div>
-            </div>
 
-            <div class="section resumen-final">
-                <h3>Resumen para ti:</h3>
-                <p>➡️ Has decidido ahorrar: <strong id="resumenAhorro">€0.00</strong></p>
-                <p>➡️ Tus gastos totales son: <strong id="resumenGastosTotales">€0.00</strong></p>
-                <p>➡️ Tu saldo final es: <strong id="resumenSaldoFinal">€0.00</strong></p>
-                <p id="mensajeFinal" class="mensaje-final"></p>
-            </div>
-        </form>
+                <div class="section gastos">
+                     <div class="section-title-container">
+                        <h2 class="section-title">2. GASTOS</h2>
+                        <img src="images/cerdomonedas.png" alt="Gastos" class="section-icon">
+                    </div>
+                    <div class="form-group">
+                        <label for="gastosImprescindibles">2.1. Ordinarios imprescindibles:</label>
+                        <input type="number" id="gastosImprescindibles" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="gastosNecesarios">2.2. Ordinarios necesarios:</label>
+                        <input type="number" id="gastosNecesarios" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="gastosPrescindibles">2.3. Ordinarios prescindibles:</label>
+                        <input type="number" id="gastosPrescindibles" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group">
+                        <label for="gastosExtraordinarios">2.4. Extraordinarios (previsión):</label>
+                        <input type="number" id="gastosExtraordinarios" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group ahorro-group">
+                        <div class="label-with-icon">
+                            <label for="ahorro">2.5. AHORRO:</label>
+                            <img src="images/cerdorojoflores.png" alt="Ahorro" class="item-icon ahorro-icon">
+                        </div>
+                        <input type="number" id="ahorro" value="0" min="0" step="0.01" placeholder="0.00">
+                    </div>
+                    <div class="form-group total-line">
+                        <label class="total-label">TOTAL GASTOS (2.1 + 2.2 + 2.3 + 2.4 + 2.5)</label>
+                        <input type="text" id="totalGastos" readonly class="calculated-field">
+                    </div>
+                </div>
+
+                <div class="section final-balance total-line">
+                    <label class="total-label saldo-final-label">SALDO FINAL <span class="formula">(TOTAL INGRESOS - TOTAL GASTOS)</span></label>
+                    <input type="text" id="saldoFinal" readonly class="calculated-field saldo-final-field">
+                </div>
+                
+                <div class="summary-for-user">
+                    <div class="summary-content">
+                        <h3>Resumen para ti:</h3>
+                        <p>Has decidido ahorrar: <strong id="resumenAhorro">€0.00</strong></p>
+                        <p>Tus gastos totales son: <strong id="resumenGastosTotales">€0.00</strong></p>
+                        <p>Tu saldo final es: <strong id="resumenSaldoFinal">€0.00</strong></p>
+                        <p id="mensajeFinal" class="mensaje-final-style"></p>
+                    </div>
+                    <img src="images/superhabit.png" alt="¡Superávit!" id="superavitImage" class="summary-feedback-icon">
+                    <img src="images/deficit.png" alt="¡Déficit!" id="deficitImage" class="summary-feedback-icon">
+                    <img src="images/equilibrio.png" alt="Equilibrio" id="equilibrioImage" class="summary-feedback-icon">
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
